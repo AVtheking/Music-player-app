@@ -35,7 +35,27 @@ class MainActivity : AppCompatActivity() {
 
         //mediaplayer
         mediaPlayer = MediaPlayer.create(this, R.raw.hanuman_chalisa)
-        seek_bar.isClickable = false
+        seek_bar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if(fromUser)
+                {
+                    mediaPlayer.seekTo(progress)
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+            }
+
+        }
+        )
+
+
+
+
         play_btn.setOnClickListener()
         {
             if(flag==1) {
@@ -104,7 +124,7 @@ class MainActivity : AppCompatActivity() {
             starttime=mediaPlayer.currentPosition.toDouble()
             timeleft.text= "" +
                     String.format(
-                        "%d  min, %d sec",
+                        "%d min , %d sec",
                         TimeUnit.MILLISECONDS.toMinutes(starttime.toLong()),
                         TimeUnit.MILLISECONDS.toSeconds(starttime.toLong())-
                                 TimeUnit.MINUTES.toSeconds(

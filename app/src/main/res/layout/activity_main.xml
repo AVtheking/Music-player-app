@@ -26,15 +26,21 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginBottom="344dp"
+        android:layout_marginBottom="332dp"
         android:text="Song title"
+        android:textAlignment="center"
+        android:textStyle="italic"
         android:textColor="#203704"
 
+
         android:textSize="30sp"
-        android:textStyle="italic"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/music_img"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/music_img"
