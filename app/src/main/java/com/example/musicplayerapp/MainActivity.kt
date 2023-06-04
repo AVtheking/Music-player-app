@@ -1,6 +1,7 @@
 package com.example.musicplayerapp
 
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -28,13 +29,16 @@ class MainActivity : AppCompatActivity() {
         val rewind: Button = findViewById(R.id.rewind)
         val forward: Button = findViewById(R.id.forward)
         val play_btn: Button = findViewById(R.id.play_btn)
+        val songname=intent.getStringExtra("songname")
+        val path = Uri.parse(intent.getStringExtra("Path"))
+
 
         val title: TextView = findViewById(R.id.title)
         seek_bar = findViewById(R.id.seek_bar)
         timeleft = findViewById(R.id.timeleft)
 
         //mediaplayer
-        mediaPlayer = MediaPlayer.create(this, R.raw.hanuman_chalisa)
+        mediaPlayer = MediaPlayer.create(this,path)
         seek_bar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if(fromUser)
@@ -87,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        title.text = "" + resources.getResourceEntryName(R.raw.hanuman_chalisa)
+        title.text = "" + songname
         forward.setOnClickListener() {
             var temp = starttime.toInt()
             if ((temp + forward_time) <= endtime) {
@@ -117,7 +121,10 @@ class MainActivity : AppCompatActivity() {
         }
 
             }
-
+    override fun onBackPressed() {
+        mediaPlayer.stop()
+        super.onBackPressed()
+    }
     val UpdateSongtime:Runnable=object:Runnable
     {
         override fun run() {
