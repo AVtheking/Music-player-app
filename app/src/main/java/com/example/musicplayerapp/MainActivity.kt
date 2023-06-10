@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         val rewind: Button = findViewById(R.id.rewind)
         val forward: Button = findViewById(R.id.forward)
         val play_btn: Button = findViewById(R.id.play_btn)
-        val songname=intent.getStringExtra("songname")
-        val path = Uri.parse(intent.getStringExtra("Path"))
+        val songname=intent.getStringExtra("songTitle")
+        val path = Uri.parse(intent.getStringExtra("songPath"))
 
 
         val title: TextView = findViewById(R.id.title)
