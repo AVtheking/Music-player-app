@@ -9,5 +9,5 @@
     <style name="ToolbarStyle" parent="Widget.Material3.Toolbar">
         <!-- Center the title text -->
         <item name="android:gravity">center</item>
-    </style>
+    </style>+
 </resources>

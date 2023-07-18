@@ -44,6 +44,7 @@ class MusicAdapter(val context:Context  ,val Songlist:ArrayList<Music>):
             return Songlist.size
     }
 
+
     override fun onBindViewHolder(holder: Myviewholder, position: Int) {
            holder.musicimg.setImageResource(R.drawable.music_logo)
            holder.musictitle.setText(Songlist[position].title)

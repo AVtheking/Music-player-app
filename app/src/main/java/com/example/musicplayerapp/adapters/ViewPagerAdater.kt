@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.musicplayerapp.Fragments.AlbumsFragment
 import com.example.musicplayerapp.Fragments.FavouriteFragment
 import com.example.musicplayerapp.Fragments.HomeFragment
+import com.example.musicplayerapp.Fragments.HomepageFragment
 import com.example.musicplayerapp.Fragments.RingtonesFragment
 
 class ViewPagerAdater(fragmentmanager:FragmentManager,lifecycle: Lifecycle):FragmentStateAdapter(fragmentmanager,lifecycle) {
@@ -18,12 +19,12 @@ class ViewPagerAdater(fragmentmanager:FragmentManager,lifecycle: Lifecycle):Frag
     override fun createFragment(position: Int): Fragment {
         when(position)
         {
-         0->return HomeFragment()
+         0->return HomepageFragment()
          1-> return AlbumsFragment()
          2-> return RingtonesFragment()
          3-> return FavouriteFragment()
         }
-        return HomeFragment()
+        return HomepageFragment()
     }
 
 }
